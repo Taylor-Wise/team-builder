@@ -5,12 +5,7 @@ import styled from "styled-components";
 import Card from "./Components/Card";
 import Form from './Components/Form';
 
-const CardGrid = styled.div`
-width: 100%;
-display: flex;
-flex-wrap: wrap;
-justify-content: space-between;
-`
+
 
 const startUpTeam = [
   {id: uuid(), fName: 'Jane', lName: 'Doe', job: 'Web designer', email: 'JaneD1234@gmail.com'},
@@ -20,19 +15,12 @@ const startUpTeam = [
 
 function App() {
   const [team, setTeam] = useState(startUpTeam);
-
+  console.log(team)
   return (
     <div className="App">
       <h1>Team Members</h1>
-      <CardGrid>
-        {team.map(team => {
-          return(
-             <Card team={team}/>
-          )
-        })}
-        
-      </CardGrid>
-      <Form />
+      <Card team={team}/>  
+      <Form team={team} setTeam={setTeam} />
     </div>
   );
 }
